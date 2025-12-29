@@ -30,6 +30,7 @@ public class MainFrame extends JFrame {
     private JButton refreshButton;
     private JButton borrowButton;
     private JButton returnButton;
+    private JButton viewDescriptionButton;
     private JButton myRecordsButton;
     private JButton allRecordsButton;
     private JButton manageBooksButton;
@@ -204,6 +205,21 @@ public class MainFrame extends JFrame {
             }
         });
         panel.add(returnButton);
+        
+        // 查看介绍按钮
+        viewDescriptionButton = new JButton("查看介绍");
+        viewDescriptionButton.setFont(new Font("微软雅黑", Font.BOLD, 16));
+        viewDescriptionButton.setPreferredSize(new Dimension(120, 40));
+        viewDescriptionButton.setBackground(new Color(100, 149, 237));
+        viewDescriptionButton.setForeground(Color.BLACK);
+        viewDescriptionButton.setFocusPainted(false);
+        viewDescriptionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                handleViewDescription();
+            }
+        });
+        panel.add(viewDescriptionButton);
         
         // 我的借阅记录按钮
         myRecordsButton = new JButton("我的借阅记录");
@@ -457,6 +473,69 @@ public class MainFrame extends JFrame {
                 "还书失败", 
                 JOptionPane.ERROR_MESSAGE);
         }
+    }
+    
+    /**
+     * 处理查看图书介绍操作
+     */
+    private void handleViewDescription() {
+        // 检查是否选中了图书
+        int selectedRow = bookTable.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, 
+                "请先选择要查看介绍的图书！", 
+                "提示", 
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        // 获取选中图书的ID
+        Integer bookId = (Integer) tableModel.getValueAt(selectedRow, 0);
+        
+        // 查询完整的图书信息（包含description字段）
+        Book book = bookService.getBookById(bookId);
+        
+        if (book == null) {
+            JOptionPane.showMessageDialog(this, 
+                "未找到该图书信息！", 
+                "错误", 
+                JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        // 构建图书详细信息
+        StringBuilder info = new StringBuilder();
+        info.append("书名：").append(book.getBookName()).append("\n\n");
+        info.append("作者：").append(book.getAuthor()).append("\n\n");
+        info.append("出版社：").append(book.getPublisher() != null ? book.getPublisher() : "未知").append("\n\n");
+        info.append("ISBN：").append(book.getIsbn() != null ? book.getIsbn() : "无").append("\n\n");
+        info.append("分类：").append(book.getCategory() != null ? book.getCategory() : "未分类").append("\n\n");
+        info.append("出版日期：").append(book.getPublishDate() != null ? book.getPublishDate().toString() : "未知").append("\n\n");
+        info.append("价格：").append(book.getPrice() != null ? "¥" + book.getPrice() : "未定价").append("\n\n");
+        info.append("库存：总数量 ").append(book.getTotalQuantity()).append("，可借 ").append(book.getAvailableQuantity()).append("\n\n");
+        info.append("━━━━━━━━━━━━━━━━━━━━━━\n\n");
+        info.append("图书简介：\n");
+        info.append(book.getDescription() != null && !book.getDescription().trim().isEmpty() 
+                    ? book.getDescription() 
+                    : "暂无简介");
+        
+        // 创建文本区域显示图书信息
+        JTextArea textArea = new JTextArea(info.toString());
+        textArea.setFont(new Font("微软雅黑", Font.PLAIN, 14));
+        textArea.setEditable(false);
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+        textArea.setCaretPosition(0); // 滚动到顶部
+        
+        // 添加滚动面板
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        scrollPane.setPreferredSize(new Dimension(500, 400));
+        
+        // 显示对话框
+        JOptionPane.showMessageDialog(this, 
+            scrollPane, 
+            "图书详细信息", 
+            JOptionPane.INFORMATION_MESSAGE);
     }
     
     /**
