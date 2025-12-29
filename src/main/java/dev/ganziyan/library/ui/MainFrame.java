@@ -206,8 +206,8 @@ public class MainFrame extends JFrame {
         });
         panel.add(returnButton);
         
-        // 查看介绍按钮
-        viewDescriptionButton = new JButton("查看介绍");
+        // 查看详情按钮
+        viewDescriptionButton = new JButton("查看详情");
         viewDescriptionButton.setFont(new Font("微软雅黑", Font.BOLD, 16));
         viewDescriptionButton.setPreferredSize(new Dimension(120, 40));
         viewDescriptionButton.setBackground(new Color(100, 149, 237));
@@ -476,14 +476,14 @@ public class MainFrame extends JFrame {
     }
     
     /**
-     * 处理查看图书介绍操作
+     * 处理查看图书详情操作
      */
     private void handleViewDescription() {
         // 检查是否选中了图书
         int selectedRow = bookTable.getSelectedRow();
         if (selectedRow == -1) {
             JOptionPane.showMessageDialog(this, 
-                "请先选择要查看介绍的图书！", 
+                "请先选择要查看详情的图书！",
                 "提示", 
                 JOptionPane.WARNING_MESSAGE);
             return;
