@@ -1,7 +1,7 @@
-package cn.jju.library.dao;
+package dev.ganziyan.library.dao;
 
-import cn.jju.library.entity.User;
-import cn.jju.library.util.DBUtil;
+import dev.ganziyan.library.entity.User;
+import dev.ganziyan.library.util.DBUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,9 +13,6 @@ import java.util.List;
 /**
  * 用户数据访问对象
  * 负责用户信息的数据库CRUD操作
- * 
- * @author 图书管理系统开发组
- * @version 1.0.0
  */
 public class UserDao {
     

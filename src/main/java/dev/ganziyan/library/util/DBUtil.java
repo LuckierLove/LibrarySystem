@@ -1,4 +1,4 @@
-package cn.jju.library.util;
+package dev.ganziyan.library.util;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,9 +13,7 @@ import java.util.Properties;
 /**
  * 数据库工具类
  * 功能：提供数据库连接管理、资源释放等基础功能
- * 
- * @author 图书管理系统开发组
- * @version 1.0.0
+ *
  */
 public class DBUtil {
     
@@ -25,7 +23,7 @@ public class DBUtil {
     private static String password;
     private static String driver;
     
-    // 静态代码块：在类加载时读取配置文件并注册数据库驱动
+    // 在类加载时读取配置文件并注册数据库驱动
     static {
         try {
             // 加载数据库配置文件
@@ -92,9 +90,9 @@ public class DBUtil {
     }
     
     /**
-     * 关闭Statement对象
+     * 关闭 Statement 对象
      * 
-     * @param statement Statement对象
+     * @param statement Statement 对象
      */
     public static void closeStatement(Statement statement) {
         if (statement != null) {
@@ -108,9 +106,9 @@ public class DBUtil {
     }
     
     /**
-     * 关闭PreparedStatement对象
+     * 关闭 PreparedStatement对象
      * 
-     * @param preparedStatement PreparedStatement对象
+     * @param preparedStatement PreparedStatement 对象
      */
     public static void closePreparedStatement(PreparedStatement preparedStatement) {
         if (preparedStatement != null) {
@@ -124,9 +122,9 @@ public class DBUtil {
     }
     
     /**
-     * 关闭ResultSet对象
+     * 关闭 ResultSet 对象
      * 
-     * @param resultSet ResultSet对象
+     * @param resultSet ResultSet 对象
      */
     public static void closeResultSet(ResultSet resultSet) {
         if (resultSet != null) {
@@ -144,7 +142,7 @@ public class DBUtil {
      * 统一关闭连接、语句和结果集，简化资源管理
      * 
      * @param connection 数据库连接
-     * @param statement SQL语句对象
+     * @param statement SQL 语句对象
      * @param resultSet 结果集对象
      */
     public static void closeAll(Connection connection, Statement statement, ResultSet resultSet) {
@@ -157,7 +155,7 @@ public class DBUtil {
      * 关闭数据库资源（PreparedStatement版本）
      * 
      * @param connection 数据库连接
-     * @param preparedStatement 预编译SQL语句对象
+     * @param preparedStatement 预编译 SQL 语句对象
      * @param resultSet 结果集对象
      */
     public static void closeAll(Connection connection, PreparedStatement preparedStatement, ResultSet resultSet) {

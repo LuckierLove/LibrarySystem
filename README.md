@@ -78,7 +78,7 @@ db.password=你的数据库密码
 mvn clean compile
 
 # 运行主程序
-mvn exec:java -Dexec.mainClass="cn.jju.library.ui.LoginFrame"
+mvn exec:java -Dexec.mainClass="ui.cn.ganziyan.library.LoginFrame"
 ```
 
 #### 方法二：在Eclipse中运行

@@ -1,16 +1,14 @@
-package cn.jju.library.service;
+package dev.ganziyan.library.service;
 
-import cn.jju.library.dao.BookDao;
-import cn.jju.library.entity.Book;
+import dev.ganziyan.library.dao.BookDao;
+import dev.ganziyan.library.entity.Book;
 
 import java.util.List;
 
 /**
  * 图书服务类
  * 实现图书管理的业务逻辑
- * 
- * @author 图书管理系统开发组
- * @version 1.0.0
+ *
  */
 public class BookService {
     

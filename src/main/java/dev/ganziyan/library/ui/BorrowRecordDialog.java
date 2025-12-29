@@ -1,7 +1,7 @@
-package cn.jju.library.ui;
+package dev.ganziyan.library.ui;
 
-import cn.jju.library.entity.BorrowRecord;
-import cn.jju.library.service.BorrowService;
+import dev.ganziyan.library.entity.BorrowRecord;
+import dev.ganziyan.library.service.BorrowService;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -12,9 +12,6 @@ import java.util.List;
 /**
  * 借阅记录对话框
  * 用于显示用户的借阅记录
- * 
- * @author 图书管理系统开发组
- * @version 1.0.0
  */
 public class BorrowRecordDialog extends JDialog {
     
@@ -106,7 +103,7 @@ public class BorrowRecordDialog extends JDialog {
         recordTable.setRowHeight(25);
         recordTable.getTableHeader().setFont(new Font("微软雅黑", Font.BOLD, 13));
         recordTable.getTableHeader().setBackground(new Color(70, 130, 180));
-        recordTable.getTableHeader().setForeground(Color.WHITE);
+        recordTable.getTableHeader().setForeground(Color.BLACK);
         
         JScrollPane scrollPane = new JScrollPane(recordTable);
         panel.add(scrollPane, BorderLayout.CENTER);

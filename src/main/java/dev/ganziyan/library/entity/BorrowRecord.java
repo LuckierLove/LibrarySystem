@@ -1,4 +1,4 @@
-package cn.jju.library.entity;
+package dev.ganziyan.library.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,9 +10,6 @@ import java.sql.Timestamp;
 /**
  * 借阅记录实体类
  * 对应数据库表：borrow_records
- * 
- * @author 图书管理系统开发组
- * @version 1.0.0
  */
 @Data
 @NoArgsConstructor

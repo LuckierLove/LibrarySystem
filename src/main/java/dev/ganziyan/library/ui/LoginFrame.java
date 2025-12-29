@@ -1,7 +1,7 @@
-package cn.jju.library.ui;
+package dev.ganziyan.library.ui;
 
-import cn.jju.library.entity.User;
-import cn.jju.library.service.UserService;
+import dev.ganziyan.library.entity.User;
+import dev.ganziyan.library.service.UserService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,9 +11,6 @@ import java.awt.event.ActionListener;
 /**
  * 登录界面
  * 提供用户登录功能
- * 
- * @author 图书管理系统开发组
- * @version 1.0.0
  */
 public class LoginFrame extends JFrame {
     
@@ -39,7 +36,7 @@ public class LoginFrame extends JFrame {
     private void initComponents() {
         // 设置窗口基本属性
         setTitle("图书借阅管理系统 - 登录");
-        setSize(450, 300);
+        setSize(700, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout(10, 10));
         
@@ -131,7 +128,7 @@ public class LoginFrame extends JFrame {
         loginButton.setFont(new Font("微软雅黑", Font.BOLD, 16));
         loginButton.setPreferredSize(new Dimension(120, 40));
         loginButton.setBackground(new Color(70, 130, 180));
-        loginButton.setForeground(Color.WHITE);
+        loginButton.setForeground(Color.BLACK);
         loginButton.setFocusPainted(false);
         loginButton.addActionListener(new ActionListener() {
             @Override
@@ -146,7 +143,7 @@ public class LoginFrame extends JFrame {
         resetButton.setFont(new Font("微软雅黑", Font.PLAIN, 16));
         resetButton.setPreferredSize(new Dimension(120, 40));
         resetButton.setBackground(new Color(169, 169, 169));
-        resetButton.setForeground(Color.WHITE);
+        resetButton.setForeground(Color.BLACK);
         resetButton.setFocusPainted(false);
         resetButton.addActionListener(new ActionListener() {
             @Override

@@ -1,9 +1,9 @@
-package cn.jju.library.service;
+package dev.ganziyan.library.service;
 
-import cn.jju.library.dao.BookDao;
-import cn.jju.library.dao.BorrowRecordDao;
-import cn.jju.library.entity.Book;
-import cn.jju.library.entity.BorrowRecord;
+import dev.ganziyan.library.dao.BookDao;
+import dev.ganziyan.library.dao.BorrowRecordDao;
+import dev.ganziyan.library.entity.Book;
+import dev.ganziyan.library.entity.BorrowRecord;
 
 import java.sql.Date;
 import java.util.Calendar;
@@ -12,9 +12,6 @@ import java.util.List;
 /**
  * 借阅服务类
  * 实现借书、还书等核心业务逻辑
- * 
- * @author 图书管理系统开发组
- * @version 1.0.0
  */
 public class BorrowService {
     

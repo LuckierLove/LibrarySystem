@@ -1,7 +1,7 @@
-package cn.jju.library.dao;
+package dev.ganziyan.library.dao;
 
-import cn.jju.library.entity.BorrowRecord;
-import cn.jju.library.util.DBUtil;
+import dev.ganziyan.library.entity.BorrowRecord;
+import dev.ganziyan.library.util.DBUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,9 +13,6 @@ import java.util.List;
 /**
  * 借阅记录数据访问对象
  * 负责借阅记录的数据库CRUD操作
- * 
- * @author 图书管理系统开发组
- * @version 1.0.0
  */
 public class BorrowRecordDao {
     
@@ -55,9 +52,9 @@ public class BorrowRecordDao {
     }
     
     /**
-     * 根据用户ID查询借阅记录
+     * 根据用户 ID查询借阅记录
      * 
-     * @param userId 用户ID
+     * @param userId 用户 ID
      * @return 该用户的借阅记录列表
      */
     public List<BorrowRecord> findByUserId(Integer userId) {
@@ -95,7 +92,7 @@ public class BorrowRecordDao {
     /**
      * 查询用户当前正在借阅的图书记录
      * 
-     * @param userId 用户ID
+     * @param userId 用户 ID
      * @return 正在借阅的记录列表
      */
     public List<BorrowRecord> findBorrowingByUserId(Integer userId) {
@@ -131,9 +128,9 @@ public class BorrowRecordDao {
     }
     
     /**
-     * 根据图书ID查询借阅记录
+     * 根据图书 ID查询借阅记录
      * 
-     * @param bookId 图书ID
+     * @param bookId 图书 ID
      * @return 该图书的借阅记录列表
      */
     public List<BorrowRecord> findByBookId(Integer bookId) {
@@ -203,7 +200,7 @@ public class BorrowRecordDao {
     /**
      * 更新借阅记录（归还图书）
      * 
-     * @param recordId 记录ID
+     * @param recordId 记录 ID
      * @return true表示更新成功，false表示更新失败
      */
     public boolean returnBook(Integer recordId) {
@@ -229,10 +226,10 @@ public class BorrowRecordDao {
     }
     
     /**
-     * 根据用户ID和图书ID查找正在借阅的记录
+     * 根据用户 ID和图书 ID查找正在借阅的记录
      * 
-     * @param userId 用户ID
-     * @param bookId 图书ID
+     * @param userId 用户 ID
+     * @param bookId 图书 ID
      * @return 借阅记录对象，如果不存在则返回null
      */
     public BorrowRecord findBorrowingRecord(Integer userId, Integer bookId) {
@@ -268,11 +265,11 @@ public class BorrowRecordDao {
     }
     
     /**
-     * 从ResultSet中提取借阅记录对象
+     * 从 ResultSet 中提取借阅记录对象
      * 
      * @param resultSet 结果集
      * @return 借阅记录对象
-     * @throws SQLException SQL异常
+     * @throws SQLException SQL 异常
      */
     private BorrowRecord extractBorrowRecordFromResultSet(ResultSet resultSet) throws SQLException {
         BorrowRecord record = new BorrowRecord();

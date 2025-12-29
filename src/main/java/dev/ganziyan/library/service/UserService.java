@@ -1,16 +1,13 @@
-package cn.jju.library.service;
+package dev.ganziyan.library.service;
 
-import cn.jju.library.dao.UserDao;
-import cn.jju.library.entity.User;
+import dev.ganziyan.library.dao.UserDao;
+import dev.ganziyan.library.entity.User;
 
 import java.util.List;
 
 /**
  * 用户服务类
  * 实现用户管理和登录验证的业务逻辑
- * 
- * @author 图书管理系统开发组
- * @version 1.0.0
  */
 public class UserService {
     

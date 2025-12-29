@@ -60,7 +60,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>cn.jju.library.ui.LoginFrame</mainClass>
+                            <mainClass>dev.ganziyan.library.ui.LoginFrame</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

@@ -1,9 +1,9 @@
-package cn.jju.library.ui;
+package dev.ganziyan.library.ui;
 
-import cn.jju.library.entity.Book;
-import cn.jju.library.entity.User;
-import cn.jju.library.service.BookService;
-import cn.jju.library.service.BorrowService;
+import dev.ganziyan.library.entity.Book;
+import dev.ganziyan.library.entity.User;
+import dev.ganziyan.library.service.BookService;
+import dev.ganziyan.library.service.BorrowService;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -15,9 +15,6 @@ import java.util.List;
 /**
  * 主界面
  * 提供图书管理、借阅管理等功能
- * 
- * @author 图书管理系统开发组
- * @version 1.0.0
  */
 public class MainFrame extends JFrame {
     
@@ -101,7 +98,7 @@ public class MainFrame extends JFrame {
         searchButton = new JButton("搜索");
         searchButton.setFont(new Font("微软雅黑", Font.PLAIN, 14));
         searchButton.setBackground(new Color(70, 130, 180));
-        searchButton.setForeground(Color.WHITE);
+        searchButton.setForeground(Color.BLACK);
         searchButton.setFocusPainted(false);
         searchButton.addActionListener(new ActionListener() {
             @Override
@@ -114,7 +111,7 @@ public class MainFrame extends JFrame {
         refreshButton = new JButton("刷新");
         refreshButton.setFont(new Font("微软雅黑", Font.PLAIN, 14));
         refreshButton.setBackground(new Color(60, 179, 113));
-        refreshButton.setForeground(Color.WHITE);
+        refreshButton.setForeground(Color.BLACK);
         refreshButton.setFocusPainted(false);
         refreshButton.addActionListener(new ActionListener() {
             @Override
@@ -150,7 +147,7 @@ public class MainFrame extends JFrame {
         bookTable.setRowHeight(25);
         bookTable.getTableHeader().setFont(new Font("微软雅黑", Font.BOLD, 14));
         bookTable.getTableHeader().setBackground(new Color(70, 130, 180));
-        bookTable.getTableHeader().setForeground(Color.WHITE);
+        bookTable.getTableHeader().setForeground(Color.BLACK);
         bookTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
         // 设置列宽
@@ -181,7 +178,7 @@ public class MainFrame extends JFrame {
         borrowButton.setFont(new Font("微软雅黑", Font.BOLD, 16));
         borrowButton.setPreferredSize(new Dimension(120, 40));
         borrowButton.setBackground(new Color(70, 130, 180));
-        borrowButton.setForeground(Color.WHITE);
+        borrowButton.setForeground(Color.BLACK);
         borrowButton.setFocusPainted(false);
         borrowButton.addActionListener(new ActionListener() {
             @Override
@@ -196,7 +193,7 @@ public class MainFrame extends JFrame {
         returnButton.setFont(new Font("微软雅黑", Font.BOLD, 16));
         returnButton.setPreferredSize(new Dimension(120, 40));
         returnButton.setBackground(new Color(220, 20, 60));
-        returnButton.setForeground(Color.WHITE);
+        returnButton.setForeground(Color.BLACK);
         returnButton.setFocusPainted(false);
         returnButton.addActionListener(new ActionListener() {
             @Override
@@ -211,7 +208,7 @@ public class MainFrame extends JFrame {
         myRecordsButton.setFont(new Font("微软雅黑", Font.PLAIN, 16));
         myRecordsButton.setPreferredSize(new Dimension(150, 40));
         myRecordsButton.setBackground(new Color(255, 140, 0));
-        myRecordsButton.setForeground(Color.WHITE);
+        myRecordsButton.setForeground(Color.BLACK);
         myRecordsButton.setFocusPainted(false);
         myRecordsButton.addActionListener(new ActionListener() {
             @Override
@@ -227,7 +224,7 @@ public class MainFrame extends JFrame {
             allRecordsButton.setFont(new Font("微软雅黑", Font.PLAIN, 16));
             allRecordsButton.setPreferredSize(new Dimension(150, 40));
             allRecordsButton.setBackground(new Color(138, 43, 226));
-            allRecordsButton.setForeground(Color.WHITE);
+            allRecordsButton.setForeground(Color.BLACK);
             allRecordsButton.setFocusPainted(false);
             allRecordsButton.addActionListener(new ActionListener() {
                 @Override
