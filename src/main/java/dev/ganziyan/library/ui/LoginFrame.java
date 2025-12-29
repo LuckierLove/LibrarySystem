@@ -21,6 +21,7 @@ public class LoginFrame extends JFrame {
     private JPasswordField passwordField;
     private JButton loginButton;
     private JButton resetButton;
+    private JButton registerButton;
     
     /**
      * 构造方法：初始化登录界面
@@ -153,6 +154,21 @@ public class LoginFrame extends JFrame {
         });
         panel.add(resetButton);
         
+        // 注册按钮
+        registerButton = new JButton("注册");
+        registerButton.setFont(new Font("微软雅黑", Font.PLAIN, 16));
+        registerButton.setPreferredSize(new Dimension(120, 40));
+        registerButton.setBackground(new Color(60, 179, 113));
+        registerButton.setForeground(Color.BLACK);
+        registerButton.setFocusPainted(false);
+        registerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                handleRegister();
+            }
+        });
+        panel.add(registerButton);
+        
         return panel;
     }
     
@@ -215,6 +231,16 @@ public class LoginFrame extends JFrame {
         usernameField.setText("");
         passwordField.setText("");
         usernameField.requestFocus();
+    }
+    
+    /**
+     * 处理注册按钮点击事件
+     * 打开注册界面
+     */
+    private void handleRegister() {
+        RegisterFrame registerFrame = new RegisterFrame(this);
+        registerFrame.setVisible(true);
+        this.setVisible(false);
     }
     
     /**
