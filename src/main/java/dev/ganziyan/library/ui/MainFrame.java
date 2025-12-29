@@ -32,6 +32,7 @@ public class MainFrame extends JFrame {
     private JButton returnButton;
     private JButton myRecordsButton;
     private JButton allRecordsButton;
+    private JButton logoutButton;
     
     /**
      * 构造方法
@@ -234,6 +235,21 @@ public class MainFrame extends JFrame {
             });
             panel.add(allRecordsButton);
         }
+        
+        // 登出按钮
+        logoutButton = new JButton("登出");
+        logoutButton.setFont(new Font("微软雅黑", Font.PLAIN, 16));
+        logoutButton.setPreferredSize(new Dimension(120, 40));
+        logoutButton.setBackground(new Color(169, 169, 169));
+        logoutButton.setForeground(Color.BLACK);
+        logoutButton.setFocusPainted(false);
+        logoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                handleLogout();
+            }
+        });
+        panel.add(logoutButton);
         
         return panel;
     }
@@ -442,5 +458,29 @@ public class MainFrame extends JFrame {
     private void showAllRecords() {
         BorrowRecordDialog dialog = new BorrowRecordDialog(this, null, true);
         dialog.setVisible(true);
+    }
+    
+    /**
+     * 处理登出操作
+     */
+    private void handleLogout() {
+        int confirm = JOptionPane.showConfirmDialog(this, 
+            "确认要登出吗？", 
+            "确认登出", 
+            JOptionPane.YES_NO_OPTION);
+        
+        if (confirm == JOptionPane.YES_OPTION) {
+            // 关闭当前主界面
+            this.dispose();
+            
+            // 打开登录界面
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    LoginFrame loginFrame = new LoginFrame();
+                    loginFrame.setVisible(true);
+                }
+            });
+        }
     }
 }
