@@ -32,6 +32,7 @@ public class MainFrame extends JFrame {
     private JButton returnButton;
     private JButton myRecordsButton;
     private JButton allRecordsButton;
+    private JButton manageBooksButton;
     private JButton logoutButton;
     
     /**
@@ -219,7 +220,7 @@ public class MainFrame extends JFrame {
         });
         panel.add(myRecordsButton);
         
-        // 如果是管理员，显示所有借阅记录按钮
+        // 如果是管理员，显示所有借阅记录按钮和图书管理按钮
         if (currentUser.isAdmin()) {
             allRecordsButton = new JButton("所有借阅记录");
             allRecordsButton.setFont(new Font("微软雅黑", Font.PLAIN, 16));
@@ -234,6 +235,20 @@ public class MainFrame extends JFrame {
                 }
             });
             panel.add(allRecordsButton);
+            
+            manageBooksButton = new JButton("图书管理");
+            manageBooksButton.setFont(new Font("微软雅黑", Font.PLAIN, 16));
+            manageBooksButton.setPreferredSize(new Dimension(150, 40));
+            manageBooksButton.setBackground(new Color(34, 139, 34));
+            manageBooksButton.setForeground(Color.BLACK);
+            manageBooksButton.setFocusPainted(false);
+            manageBooksButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    showBookManagement();
+                }
+            });
+            panel.add(manageBooksButton);
         }
         
         // 登出按钮
@@ -458,6 +473,16 @@ public class MainFrame extends JFrame {
     private void showAllRecords() {
         BorrowRecordDialog dialog = new BorrowRecordDialog(this, null, true);
         dialog.setVisible(true);
+    }
+    
+    /**
+     * 显示图书管理界面（仅管理员可见）
+     */
+    private void showBookManagement() {
+        BookManagementDialog dialog = new BookManagementDialog(this);
+        dialog.setVisible(true);
+        // 关闭对话框后刷新图书列表
+        loadBookData();
     }
     
     /**
