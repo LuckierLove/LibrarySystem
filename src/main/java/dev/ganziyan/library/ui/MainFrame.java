@@ -34,6 +34,8 @@ public class MainFrame extends JFrame {
     private JButton myRecordsButton;
     private JButton allRecordsButton;
     private JButton manageBooksButton;
+    private JButton userManagementButton;
+    private JButton changePasswordButton;
     private JButton logoutButton;
     
     /**
@@ -265,7 +267,36 @@ public class MainFrame extends JFrame {
                 }
             });
             panel.add(manageBooksButton);
+            
+            userManagementButton = new JButton("用户管理");
+            userManagementButton.setFont(new Font("微软雅黑", Font.PLAIN, 16));
+            userManagementButton.setPreferredSize(new Dimension(150, 40));
+            userManagementButton.setBackground(new Color(255, 140, 0));
+            userManagementButton.setForeground(Color.BLACK);
+            userManagementButton.setFocusPainted(false);
+            userManagementButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    showUserManagement();
+                }
+            });
+            panel.add(userManagementButton);
         }
+        
+        // 修改密码按钮（所有用户可见）
+        changePasswordButton = new JButton("修改密码");
+        changePasswordButton.setFont(new Font("微软雅黑", Font.PLAIN, 16));
+        changePasswordButton.setPreferredSize(new Dimension(120, 40));
+        changePasswordButton.setBackground(new Color(100, 149, 237));
+        changePasswordButton.setForeground(Color.BLACK);
+        changePasswordButton.setFocusPainted(false);
+        changePasswordButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showChangePassword();
+            }
+        });
+        panel.add(changePasswordButton);
         
         // 登出按钮
         logoutButton = new JButton("登出");
@@ -562,6 +593,22 @@ public class MainFrame extends JFrame {
         dialog.setVisible(true);
         // 关闭对话框后刷新图书列表
         loadBookData();
+    }
+    
+    /**
+     * 显示用户管理界面（仅管理员可见）
+     */
+    private void showUserManagement() {
+        UserManagementDialog dialog = new UserManagementDialog(this);
+        dialog.setVisible(true);
+    }
+    
+    /**
+     * 显示修改密码对话框
+     */
+    private void showChangePassword() {
+        ChangePasswordDialog dialog = new ChangePasswordDialog(this, currentUser);
+        dialog.setVisible(true);
     }
     
     /**
