@@ -47,7 +47,10 @@ public class MainFrame extends JFrame {
         this.currentUser = user;
         initComponents();
         loadBookData();
+        // 重新 pack 并居中，然后自动显示窗口，用户无需手动调整大小
+        pack();
         setLocationRelativeTo(null); // 窗口居中
+        setVisible(true);
     }
     
     /**
@@ -56,10 +59,13 @@ public class MainFrame extends JFrame {
     private void initComponents() {
         // 设置窗口基本属性
         setTitle("图书借阅管理系统 - 主界面");
-        setSize(1000, 600);
+        // 使用首选大小并让布局管理器计算实际尺寸，避免底部按钮被窗口装饰（边框/标题栏）挡住
+        // 将窗口尺寸放大 1.5 倍（原 1000x600 -> 1500x900），并相应放大最小尺寸
+        setPreferredSize(new Dimension(1500, 900));
+        setMinimumSize(new Dimension(1200, 780));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new BorderLayout(10, 10));
-        
+        getContentPane().setLayout(new BorderLayout(10, 10));
+
         // 创建顶部面板（欢迎信息和搜索）
         JPanel topPanel = createTopPanel();
         add(topPanel, BorderLayout.NORTH);
@@ -71,6 +77,9 @@ public class MainFrame extends JFrame {
         // 创建底部面板（操作按钮）
         JPanel bottomPanel = createBottomPanel();
         add(bottomPanel, BorderLayout.SOUTH);
+
+        // 让布局管理器计算组件的首选大小并设置窗口实际大小
+        pack();
     }
     
     /**
